@@ -1,0 +1,14 @@
+{
+  "name": "wetube",
+  "version": "1.0.0",
+  "description": "Learning and practicing Node.js and Express by cloning Youtube",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Hee Young Lee",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
