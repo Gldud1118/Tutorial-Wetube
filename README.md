@@ -1,3 +1,3 @@
-# learn-nodejs
+# wetube
 
 Learning and practicing Node.js by cloning Youtube with Nicolas from Nomad Coders

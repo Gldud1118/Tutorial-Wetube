@@ -4,11 +4,27 @@
   "description": "Learning and practicing Node.js and Express by cloning Youtube",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js"
+    "dev:assets": "webpack -w --mode=development",
+    "build:assets": "webpack -w --mode=production"
   },
   "author": "Hee Young Lee",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "@babel/polyfill": "^7.2.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.3",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "autoprefixer": "^9.4.8",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^2.1.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "node-sass": "^4.11.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3"
   }
 }
