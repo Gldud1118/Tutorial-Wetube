@@ -35,7 +35,8 @@ app.use(
     secret: process.env.COOKIE_SECRET,
     resave: true,
     saveUninitialized: false,
-    store: new CookieStore({ mongooseConnection: mongoose.connection })
+    store: new CookieStore({ mongooseConnection: mongoose.connection }),
+    cookie: { maxAge: 120000 } //만료일자를 추가
   })
 );
 //한번 인증된 클라이언트는 서버에서 받은 세션 아이디를 쿠키 등에 저장해 놓고 있음

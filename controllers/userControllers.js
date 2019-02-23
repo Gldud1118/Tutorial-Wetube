@@ -32,7 +32,10 @@ export const postLogin = passport.authenticate("local", {
   failureRedirect: routes.login,
   successRedirect: routes.home
 });
-export const logout = (req, res) => res.send("logout");
+export const logout = (req, res) => {
+  req.logout();
+  res.redirect(routes.home);
+};
 
 export const userDetail = (req, res) => res.render("userDetail");
 

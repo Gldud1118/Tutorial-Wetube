@@ -6,6 +6,8 @@ import app from "./app";
 dotenv.config();
 
 import "./models/User";
+import "./models/Video";
+import "./models/Comment";
 
 const PORT = process.env.PORT || 8080;
 
