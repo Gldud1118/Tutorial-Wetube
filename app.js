@@ -20,6 +20,7 @@ const app = express();
 const CookieStore = MongoStore(session);
 
 app.set("view engine", "pug"); //템플릿 엔진으로 pug사용
+app.use("/uploads", express.static("uploads")); //디렉토리에서 파일을 보내주는 middleware
 
 app.use(cookieParser()); //request객체에 cookies속성이 부여된다.
 app.use(bodyParser.json());
@@ -35,8 +36,8 @@ app.use(
     secret: process.env.COOKIE_SECRET,
     resave: true,
     saveUninitialized: false,
-    store: new CookieStore({ mongooseConnection: mongoose.connection }),
-    cookie: { maxAge: 120000 } //만료일자를 추가
+    store: new CookieStore({ mongooseConnection: mongoose.connection })
+    // cookie: { maxAge: 120000 } //만료일자를 추가
   })
 );
 //한번 인증된 클라이언트는 서버에서 받은 세션 아이디를 쿠키 등에 저장해 놓고 있음
