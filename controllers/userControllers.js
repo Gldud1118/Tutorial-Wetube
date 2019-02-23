@@ -1,5 +1,7 @@
 export const getJoin = (req, res) => res.render("join");
-export const postJoin = (req, res) => res.render("join");
+export const postJoin = (req, res) => {
+  res.redirect("/");
+};
 export const getLogin = (req, res) => res.render("login");
 export const postLogin = (req, res) => res.render("login");
 export const logout = (req, res) => res.send("logout");
