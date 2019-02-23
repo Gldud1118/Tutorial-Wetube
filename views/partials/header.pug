@@ -8,8 +8,18 @@ header.header
                 input(type="text", name="term", placeholder="Search by term...")
         .header__column
             ul
-                li
-                    a(href=routes.join) Join
-                li 
-                    a(href=routes.login) Login       
+                if !user
+                    li
+                        a(href=routes.join) Join
+                    li 
+                        a(href=routes.login) Login  
+
+                else
+                    li  
+                        a(href=`/videos${routes.upload}`) Upload
+                    li
+                        a(href=routes.me) Profile
+                    li
+                        a(href=routes.logout) Log Out
+
             
