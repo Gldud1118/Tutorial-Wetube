@@ -37,11 +37,35 @@ export const logout = (req, res) => {
   res.redirect(routes.home);
 };
 
+export const getMe = (req, res) => {
+  res.render("userDetail", { pageTitle: "User Detail", user: req.user });
+};
+
 export const userDetail = (req, res) => res.render("userDetail");
 
-export const getEditProfile = (req, res) => res.send("editProfile");
+export const getEditProfile = (req, res) => {
+  res.render("editProfile");
+};
 
-export const postEditProfile = (req, res) => res.send("editProfile");
+export const postEditProfile = async (req, res) => {
+  const {
+    body: { name, email },
+    file
+  } = req;
+
+  try {
+    await User.findByIdAndUpdate(req.user.id, {
+      name,
+      email,
+      avatarUrl: file ? file.path : req.user.avatarUrl //항상 request 객체 안에는 user가 있다
+    });
+
+    res.redirect(routes.me);
+  } catch (err) {
+    console.log(err);
+    res.render("editProfile", { pageTitle: "Edit Profile" });
+  }
+};
 
 export const getChangePassword = (req, res) => res.send("changePassword");
 
