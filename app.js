@@ -21,6 +21,7 @@ const CookieStore = MongoStore(session);
 
 app.set("view engine", "pug"); //템플릿 엔진으로 pug사용
 app.use("/uploads", express.static("uploads")); //디렉토리에서 파일을 보내주는 middleware
+app.use("/static", express.static("static"));
 
 app.use(cookieParser()); //request객체에 cookies속성이 부여된다.
 app.use(bodyParser.json());
