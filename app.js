@@ -6,6 +6,7 @@ import bodyParser from "body-parser";
 import passport from "passport";
 import mongoose from "mongoose";
 import session from "express-session";
+import path from "path";
 import MongoStore from "connect-mongo";
 import { localsMiddleware } from "./middlewares";
 import routes from "./routes";
@@ -20,9 +21,8 @@ const app = express();
 const CookieStore = MongoStore(session);
 
 app.set("view engine", "pug"); //템플릿 엔진으로 pug사용
-app.use("/uploads", express.static("uploads")); //디렉토리에서 파일을 보내주는 middleware
-app.use("/static", express.static("static"));
-
+app.use("/uploads", express.static(__dirname + "/uploads")); //디렉토리에서 파일을 보내주는 middleware
+app.use("/static", express.static(path.join(__dirname, "static")));
 app.use(cookieParser()); //request객체에 cookies속성이 부여된다.
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
