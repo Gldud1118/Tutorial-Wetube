@@ -19,6 +19,12 @@ const VIDEO_DETAIL = "/:id";
 const EDIT_VIDEO = "/:id/edit"; //만약 컨트롤러에서 어떤 data를 가지고 있다는 것을 표현하고싶으면 더블콜론(:)과 이름을 넣으면 된다.
 const DELETE_VIDEO = "/:id/delete";
 
+//API
+
+const API = "/api";
+const REGISTER_VIEW = "/:id/view"; //템플릿을 렌더링하지 않는다.
+const ADD_COMMENT = "/:id/comment";
+
 const routes = {
   home: HOME,
   join: JOIN,
@@ -58,7 +64,10 @@ const routes = {
     } else {
       return DELETE_VIDEO;
     }
-  }
+  },
+  api: API,
+  registerView: REGISTER_VIEW,
+  addComment: ADD_COMMENT
 };
 
 export default routes;

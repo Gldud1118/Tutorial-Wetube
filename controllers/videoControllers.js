@@ -1,5 +1,6 @@
 import routes from "../routes";
 import Video from "../models/Video";
+import Comment from "../models/Comment";
 
 export const home = async (req, res) => {
   try {
@@ -40,7 +41,6 @@ export const videoDetail = async (req, res) => {
 
   try {
     const video = await Video.findById(id).populate("creator"); //mongoose.Schema.Types.ObjectId여기에다가만 쓸 수 있음
-    console.log(video);
 
     res.render("videoDetail", { pageTitle: video.title, video });
   } catch (err) {
@@ -97,4 +97,53 @@ export const deleteVideo = async (req, res) => {
   }
 
   res.redirect(routes.home);
+};
+
+export const postRegisterView = async (req, res) => {
+  console.log("들어옴");
+  const {
+    params: { id }
+  } = req;
+
+  console.log(req);
+  try {
+    const video = await Video.findById(id);
+
+    video.views += 1;
+    video.save();
+    res.status(200);
+  } catch (err) {
+    console.log(err);
+    res.status(400);
+    res.end();
+  } finally {
+    res.end();
+  }
+};
+
+export const postRegister = (req, res) => {
+  res.send("eeee");
+};
+export const postAddComment = async (req, res) => {
+  console.log("들어옴");
+  const {
+    params: { id },
+    body: { comment },
+    user
+  } = req;
+
+  try {
+    const video = await Video.findById(id);
+    const newComment = await Comment.create({
+      text: comment,
+      creator: user.id
+    });
+
+    video.comments.push(newComment.id);
+    video.save();
+  } catch (err) {
+    res.status(400);
+  } finally {
+    res.end();
+  }
 };

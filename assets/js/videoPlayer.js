@@ -17,9 +17,9 @@ function handlePlayClick() {
   }
 }
 
-const registerView = () => {
+const registerView = async () => {
   const videoId = window.location.href.split("/videos/")[1];
-  fetch(`/api/${videoId}/view`, {
+  await fetch(`/api/${videoId}/view`, {
     method: "POST"
   });
 };
@@ -96,6 +96,7 @@ function goFullScreen() {
 }
 
 function handleEnded() {
+  console.log("끝났다");
   registerView();
   videoPlayer.currentTime = 0;
   playBtn.innerHTML = '<i class="fas fa-play"></i>';
