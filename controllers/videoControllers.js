@@ -40,7 +40,9 @@ export const videoDetail = async (req, res) => {
   } = req;
 
   try {
-    const video = await Video.findById(id).populate("creator"); //mongoose.Schema.Types.ObjectId여기에다가만 쓸 수 있음
+    const video = await Video.findById(id)
+      .populate("creator")
+      .populate("comments"); //mongoose.Schema.Types.ObjectId여기에다가만 쓸 수 있음
 
     res.render("videoDetail", { pageTitle: video.title, video });
   } catch (err) {
@@ -100,12 +102,10 @@ export const deleteVideo = async (req, res) => {
 };
 
 export const postRegisterView = async (req, res) => {
-  console.log("들어옴");
   const {
     params: { id }
   } = req;
 
-  console.log(req);
   try {
     const video = await Video.findById(id);
 
@@ -125,7 +125,6 @@ export const postRegister = (req, res) => {
   res.send("eeee");
 };
 export const postAddComment = async (req, res) => {
-  console.log("들어옴");
   const {
     params: { id },
     body: { comment },
@@ -141,8 +140,30 @@ export const postAddComment = async (req, res) => {
 
     video.comments.push(newComment.id);
     video.save();
+    res.send(newComment);
   } catch (err) {
     res.status(400);
+  } finally {
+    res.end();
+  }
+};
+
+export const postDeleteComment = async (req, res) => {
+  const {
+    params: { id },
+    body: { videoId }
+  } = req;
+
+  try {
+    await Comment.findByIdAndRemove(id);
+    const video = await Video.findById(videoId);
+
+    await video.comments.pull({ _id: id });
+
+    video.save();
+  } catch (err) {
+    console.log(err);
+    res.send(400);
   } finally {
     res.end();
   }
