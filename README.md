@@ -1,3 +1,19 @@
 # wetube
 
-Learning and practicing Node.js by cloning Youtube with Nicolas from Nomad Coders
+유튜브를 클론하면서 배우는 초급 풀스택 강의
+
+## 학습 목표
+
+유튜브를 클론하는 과정에서 순수 자바스크립트, sass, ES6, Webpack, Pug 등으로 프론트엔드 구성, MongoDB, Express, NodeJS, AWS 백엔드를 구성 및 서버 배포를 해보면서 풀스택 개발을 체험
+
+## 학습 플랫폼
+
+노마드코더()
+
+## 학습 기간
+
+2019년 2월
+
+## 학생 내용
+- 
+
