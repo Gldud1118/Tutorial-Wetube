@@ -4,16 +4,26 @@
 
 ## 학습 목표
 
-유튜브를 클론하는 과정에서 순수 자바스크립트, sass, ES6, Webpack, Pug 등으로 프론트엔드 구성, MongoDB, Express, NodeJS, AWS 백엔드를 구성 및 서버 배포를 해보면서 풀스택 개발을 체험
+유튜브를 클론하면서 프론트엔드, 백엔드, 서버 배포까지 풀스택 체험 
 
 ## 학습 플랫폼
 
-노마드코더()
+노마드코더(https://academy.nomadcoders.co/p/javascript-fullstack-from-zero-to-hero)
 
 ## 학습 기간
 
 2019년 2월
 
-## 학생 내용
-- 
+## 학습 내용
+- Node.js
+- Express.js
+- MongoDB
+- ES6+
+- Pug(템플릿 엔진)
+- Webpack, Babel
+- Passport.js(사용자 인증 기능)
+- Express에서의 MVC패턴
+- VanillaJS(순수 자바스크립트)로 비디오 녹화 기능
+- 비디오 플레이어 커스텀 기능
+- 비디오 업로드 기능
 
