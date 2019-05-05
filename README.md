@@ -1,6 +1,7 @@
 # wetube
 
 유튜브를 클론하면서 배우는 초급 풀스택 강의
+https://user-images.githubusercontent.com/34665838/57186537-e5b2a100-6f1b-11e9-8e2c-3f3c80f82f97.png
 
 ## 학습 목표
 
