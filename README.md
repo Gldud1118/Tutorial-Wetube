@@ -23,7 +23,7 @@
 - Webpack, Babel
 - Passport.js(사용자 인증 기능)
 - Express에서의 MVC패턴
-- VanillaJS(순수 자바스크립트)로 비디오 녹화 기능
-- VanillaJS(순수 자바스크립트)로 비디오 플레이어 커스텀 기능
+- Vanilla JS(순수 자바스크립트)로 비디오 녹화 기능
+- Vanilla JS(순수 자바스크립트)로 비디오 플레이어 커스텀 기능
 
 
